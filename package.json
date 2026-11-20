@@ -1,0 +1,12 @@
+{
+  "name": "chatlostit-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Chat Lost It pitch site with founding-slot signup form",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "vercel dev",
+    "test": "node scripts/test-contact.mjs"
+  }
+}

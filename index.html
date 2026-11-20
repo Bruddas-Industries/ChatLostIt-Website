@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chat Lost It | Live stream clipping</title>
+  <meta name="description" content="Chat Lost It clips your stream while you're still live. When chat explodes, a captioned vertical clip is ready about two minutes later for TikTok, Shorts and Reels.">
+  <meta name="theme-color" content="#0B0A14">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Chat Lost It | Clips while you're still live">
+  <meta property="og:description" content="When chat loses it, your vertical clip is ready about two minutes later. Captioned, hooked and written up for TikTok, Shorts and Reels.">
+  <meta property="og:image" content="/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="logo" href="/" aria-label="Chat Lost It home">
+        <img src="/assets/mark.png" alt="" width="36" height="36">
+        <span>Chat <em>Lost It</em></span>
+      </a>
+      <nav class="nav__links" aria-label="Sections">
+        <a href="#speed">Why live</a>
+        <a href="#how">How it works</a>
+        <a href="#compare">Compare</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn--pink btn--sm" href="#signup">Claim a slot</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <h1>Chat loses it. Two minutes later, it's a clip.</h1>
+          <p class="lede">Chat Lost It watches your stream live. The moment chat explodes, it cuts the clip, captions it, writes the hook and hands you a vertical video ready for TikTok, Shorts and Reels. You're still streaming when it lands.</p>
+          <div class="hero__ctas">
+            <a class="btn btn--pink" href="#signup">Claim a founding slot</a>
+            <a class="btn btn--ghost" href="#how">See how it works</a>
+          </div>
+          <p class="hero__note">Founding partners get the first month free. We only take a few channels at a time.</p>
+        </div>
+
+        <!-- Live demo: simulated stream → heat spike → clip -->
+        <div class="demo" aria-label="Animated example: chat spikes during a live stream and a finished clip appears about two minutes later" role="img">
+          <div class="demo__bar">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span class="demo__live">Live</span>
+            <span class="demo__clock" id="demoClock">2:14:03</span>
+            <span class="demo__status" id="demoStatus">Watching chat</span>
+          </div>
+          <div class="demo__body">
+            <div class="demo__left">
+              <ul class="chat" id="chat" aria-hidden="true"></ul>
+              <div class="heat" aria-hidden="true">
+                <svg id="heatSvg" viewBox="0 0 300 80" preserveAspectRatio="none">
+                  <line class="heat__trigger" x1="0" x2="300" y1="26" y2="26"/>
+                  <path class="heat__fill" id="heatFill" d=""/>
+                  <path class="heat__line" id="heatLine" d=""/>
+                </svg>
+                <div class="heat__legend"><span>Chat heat</span><span>Clip line</span></div>
+              </div>
+            </div>
+
+            <div class="phone" id="phone" aria-hidden="true">
+              <div class="phone__screen">
+                <div class="clip__cam"><div class="clip__face"></div></div>
+                <div class="clip__game">
+                  <div class="clip__sun"></div>
+                  <div class="clip__city"></div>
+                </div>
+                <div class="clip__hook">He was not ready for this</div>
+                <div class="clip__context">2 hours into the heist...</div>
+                <div class="clip__caps" id="caps"><span>Nah</span> <span>no</span> <span>way</span></div>
+                <div class="clip__credit">clip: @yourchannel</div>
+                <div class="clip__ready" id="clipReady">Ready <b id="readyTime">1:58</b> after the moment</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPEED -->
+    <section class="section" id="speed">
+      <div class="wrap">
+        <div class="split">
+          <div class="split__head">
+            <h2>The first upload gets the views.</h2>
+          </div>
+          <div class="split__body">
+            <p>Your biggest moments already get clipped, by clip pages and campaign clippers who post them to their own accounts hours later. By then the moment has been reposted thirty times and the algorithm has moved on.</p>
+            <p>Chat Lost It works off the live stream, not the VOD. Your clip exists while the moment is still trending in chat, on X and in Discord, so the first version people see comes from you.</p>
+          </div>
+        </div>
+
+        <figure class="race" aria-labelledby="raceCap">
+          <div class="race__scale" aria-hidden="true">
+            <span style="--x:0%">Moment</span>
+            <span style="--x:14%">2 min</span>
+            <span style="--x:38%">1 hr</span>
+            <span style="--x:62%">6 hr</span>
+            <span style="--x:86%">Next day</span>
+          </div>
+          <ol class="race__rows">
+            <li class="race__row race__row--us">
+              <span class="race__name">Chat Lost It</span>
+              <span class="race__track"><span class="race__bar" style="--from:0%;--to:14%"></span></span>
+              <span class="race__when">About 2 minutes, while you're live</span>
+            </li>
+            <li class="race__row">
+              <span class="race__name">Clip pages and campaign clippers</span>
+              <span class="race__track"><span class="race__bar" style="--from:28%;--to:58%"></span></span>
+              <span class="race__when">30 minutes to a few hours, on their accounts</span>
+            </li>
+            <li class="race__row">
+              <span class="race__name">AI clip apps</span>
+              <span class="race__track"><span class="race__bar" style="--from:52%;--to:80%"></span></span>
+              <span class="race__when">After the stream ends and the VOD processes</span>
+            </li>
+            <li class="race__row">
+              <span class="race__name">An editor working the VOD</span>
+              <span class="race__track"><span class="race__bar" style="--from:72%;--to:100%"></span></span>
+              <span class="race__when">Late that night or the next day</span>
+            </li>
+          </ol>
+          <figcaption id="raceCap">Typical time from the moment on stream to a finished vertical clip.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- HOW -->
+    <section class="section section--alt" id="how">
+      <div class="wrap">
+        <h2 class="section__title">What happens while you stream</h2>
+        <p class="section__intro">Nothing to install, no bot in your chat. We work from your public stream and chat, and keep the last 15 minutes of video ready to cut.</p>
+
+        <ol class="steps">
+          <li class="step">
+            <span class="step__n">1</span>
+            <h3>Read the room</h3>
+            <p>Every 5 seconds we score how hard chat is going: messages per second, emote spam like KEKW, OMEGALUL and "CLIP IT", viewer-made Twitch clips, and how loud the stream just got.</p>
+          </li>
+          <li class="step">
+            <span class="step__n">2</span>
+            <h3>Catch the spike</h3>
+            <p>When the score crosses the clip line, we let the moment play out for 30 seconds, then cut it straight from the live buffer.</p>
+          </li>
+          <li class="step">
+            <span class="step__n">3</span>
+            <h3>Judge it</h3>
+            <p>AI reads the transcript, the chat and frames from the video, then scores the moment. Weak ones are dropped. Keepers are trimmed so the payoff hits in the first few seconds.</p>
+          </li>
+          <li class="step">
+            <span class="step__n">4</span>
+            <h3>Make it postable</h3>
+            <p>A 1080×1920 video with facecam stacked over gameplay, word-by-word captions, a hook on screen in the first 2.5 seconds and audio leveled for phone speakers.</p>
+          </li>
+          <li class="step">
+            <span class="step__n">5</span>
+            <h3>Approve and post</h3>
+            <p>Your phone buzzes. One tap approves it, with titles, captions and hashtags already written for TikTok, Shorts and Reels.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- THE CLIP -->
+    <section class="section" id="clip">
+      <div class="wrap clipshow">
+        <div class="clipshow__phone" aria-hidden="true">
+          <div class="phone phone--static">
+            <div class="phone__screen">
+              <div class="clip__cam"><div class="clip__face"></div></div>
+              <div class="clip__game"><div class="clip__sun"></div><div class="clip__city"></div></div>
+              <div class="clip__hook">They saved her. She is NOT</div>
+              <div class="clip__context">First night in Vice City...</div>
+              <div class="clip__caps"><span>Bro</span> <span class="on">what</span> <span>was</span></div>
+              <div class="clip__credit">clip: @yourchannel</div>
+            </div>
+          </div>
+        </div>
+        <div class="clipshow__copy">
+          <h2>Built for the feed, not the archive</h2>
+          <p class="section__intro">Every clip comes out in the format short-form rewards, so it holds people past the first swipe.</p>
+          <dl class="specs">
+            <div><dt>Payoff first</dt><dd>Trimmed so the reaction lands within about 10 seconds. Most clips run 15 to 25 seconds.</dd></div>
+            <div><dt>Captions in sync</dt><dd>Word-by-word, with the spoken word lighting up. 98% of words land within a tenth of a second of the audio.</dd></div>
+            <div><dt>A hook that stops the scroll</dt><dd>Six words or fewer, on screen before the viewer decides to swipe.</dd></div>
+            <div><dt>Your face and the game</dt><dd>Facecam stacked over gameplay, framed per channel. Gameplay-only layouts for streams without a cam.</dd></div>
+            <div><dt>Post text included</dt><dd>Three title options, a description and pinned comment for Shorts, plus captions and hashtags for TikTok and Reels.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARE -->
+    <section class="section section--alt" id="compare">
+      <div class="wrap">
+        <h2 class="section__title">How it stacks up</h2>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Comparison table">
+          <table class="compare">
+            <thead>
+              <tr>
+                <th scope="col"><span class="sr-only">Question</span></th>
+                <th scope="col" class="compare__us">Chat Lost It</th>
+                <th scope="col">Clip pages and campaign clippers</th>
+                <th scope="col">AI clip apps</th>
+                <th scope="col">Hiring an editor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">When the clip is ready</th>
+                <td class="compare__us">About 2 minutes after the moment, mid-stream</td>
+                <td>Hours later</td>
+                <td>After the stream ends and the VOD uploads</td>
+                <td>Whenever they get through the VOD</td>
+              </tr>
+              <tr>
+                <th scope="row">How moments are found</th>
+                <td class="compare__us">Chat speed, emote spam, viewer clips and audio, checked every 5 seconds, then AI review</td>
+                <td>Whatever someone happened to catch</td>
+                <td>Keywords in the transcript</td>
+                <td>One person scrubbing hours of footage</td>
+              </tr>
+              <tr>
+                <th scope="row">Whose account gets the views</th>
+                <td class="compare__us">Yours</td>
+                <td>Theirs</td>
+                <td>Yours</td>
+                <td>Yours</td>
+              </tr>
+              <tr>
+                <th scope="row">Your effort</th>
+                <td class="compare__us">Tap approve</td>
+                <td>None, and no say in what goes out</td>
+                <td>Upload, pick, fix captions, post</td>
+                <td>Briefing, feedback and payroll</td>
+              </tr>
+              <tr>
+                <th scope="row">Covers every hour you're live</th>
+                <td class="compare__us">Yes</td>
+                <td>Only the moments that go viral anyway</td>
+                <td>Only what you upload</td>
+                <td>As many hours as they can watch</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTROL -->
+    <section class="section" id="control">
+      <div class="wrap">
+        <h2 class="section__title">Nothing goes out that you wouldn't post</h2>
+        <ul class="guards">
+          <li><h3>Every clip waits for approval</h3><p>You or your team approve from your phone, or let us curate to your rules. Nothing posts on its own.</p></li>
+          <li><h3>Spoiler check</h3><p>For new story games, frames are checked for spoilers before a clip is kept.</p></li>
+          <li><h3>Brand-safe by default</h3><p>Gambling segments are filtered out and slurs are masked in captions.</p></li>
+          <li><h3>Credit on every clip</h3><p>Your channel name is on screen and in every caption.</p></li>
+          <li><h3>Stop any time</h3><p>Say the word and we stop recording your channel within a minute.</p></li>
+          <li><h3>Got a backlog?</h3><p>We can run your old VODs through the same pipeline and clip the whole archive.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SIGNUP -->
+    <section class="section signup" id="signup">
+      <div class="wrap signup__grid">
+        <div class="signup__copy">
+          <p class="sticker">Founding partners</p>
+          <h2>First month on us.</h2>
+          <p>Each partner gets dedicated recording capacity so every live hour is covered, which means we can only run a handful of channels at once. Founding partners pay nothing for the first 30 days. All we ask is honest feedback.</p>
+          <ul class="ticks">
+            <li>Live clipping on every stream, Twitch or YouTube</li>
+            <li>Clips ready about 2 minutes after the moment</li>
+            <li>Post text written for TikTok, Shorts and Reels</li>
+            <li>Approval from your phone</li>
+            <li>No contract. After 30 days, keep going at a monthly rate we agree on together, or walk away.</li>
+          </ul>
+        </div>
+
+        <form class="form" id="signupForm" novalidate>
+          <h3 class="form__title">Request a founding slot</h3>
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="120">
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required maxlength="200">
+          </div>
+          <div class="field">
+            <label for="f-role">You are</label>
+            <select id="f-role" name="role" required>
+              <option value="Streamer">The streamer</option>
+              <option value="Manager">A manager</option>
+              <option value="Agency or org">An agency or org</option>
+              <option value="Editor or team member">An editor or team member</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-channel">Channel link</label>
+            <input id="f-channel" name="channel" type="text" inputmode="url" placeholder="twitch.tv/yourname" required maxlength="300">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-hours">Hours live per week</label>
+              <select id="f-hours" name="hours">
+                <option value="Under 10">Under 10</option>
+                <option value="10 to 25" selected>10 to 25</option>
+                <option value="25 to 40">25 to 40</option>
+                <option value="40+">40+</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-dest">Post clips to</label>
+              <select id="f-dest" name="destination">
+                <option value="My accounts">My accounts</option>
+                <option value="A dedicated clip channel">A dedicated clip channel</option>
+                <option value="Both">Both</option>
+                <option value="Not sure yet">Not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-msg">Anything we should know <span class="opt">(optional)</span></label>
+            <textarea id="f-msg" name="message" rows="3" maxlength="2000" placeholder="Schedule, games, what you want more of"></textarea>
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label for="f-company">Company</label>
+            <input id="f-company" name="company" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <button class="btn btn--pink btn--block" type="submit" id="submitBtn">Request my slot</button>
+          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+          <p class="form__fine">We'll reply by email within 24 hours. Your details are only used to get back to you.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--alt" id="faq">
+      <div class="wrap faq">
+        <h2 class="section__title">Questions</h2>
+        <details>
+          <summary>Do I need to install anything or add a bot?</summary>
+          <p>No. We work from your public stream and chat. Nothing runs on your PC and nothing joins your chat.</p>
+        </details>
+        <details>
+          <summary>Which platforms do you support?</summary>
+          <p>Twitch and YouTube Live, using chat and audio to find moments. Kick works with audio only for now. Clips are made for TikTok, YouTube Shorts and Instagram Reels.</p>
+        </details>
+        <details>
+          <summary>Who posts the clips, and where?</summary>
+          <p>Your call. Clips can go to your own accounts, to a dedicated clip channel for you, or both. Every clip credits your channel either way.</p>
+        </details>
+        <details>
+          <summary>Can I see clips before they go out?</summary>
+          <p>Yes. Every clip waits for approval. You can approve them yourself from your phone, hand that to your team, or let us curate to rules you set.</p>
+        </details>
+        <details>
+          <summary>What if I want it to stop?</summary>
+          <p>Tell us and we stop recording your channel within a minute. No contract during or after the free month.</p>
+        </details>
+        <details>
+          <summary>What does it cost after the first month?</summary>
+          <p>A flat monthly rate based on how much you stream, agreed on a call before the free month ends. No per-clip fees.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <a class="logo logo--small" href="/"><img src="/assets/mark.png" alt="" width="28" height="28"><span>Chat <em>Lost It</em></span></a>
+      <p>A Bruddas Industries product.</p>
+      <a href="#signup">Claim a founding slot</a>
+    </div>
+  </footer>
+
+  <script src="/main.js" defer></script>
+</body>
+</html>
